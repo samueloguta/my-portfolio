@@ -1,3 +1,33 @@
+/* Global Reset and Responsive Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* base font size for desktop */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fdfdfd;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.section {
+  padding: 60px 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* Reset & Global */
 * {
   box-sizing: border-box;
@@ -520,4 +550,56 @@ footer {
   background: #ff6600;
   color: #fff;
   font-weight: 600;
+}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+
+  html {
+    font-size: 14px; /* shrink all fonts a bit */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* scale down hero heading */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* scale down section titles */
+  }
+
+  h3 {
+    font-size: 1.2rem; /* smaller subheadings */
+  }
+
+  p, span, a {
+    font-size: 1rem; /* shrink paragraphs and buttons */
+  }
+
+  .home-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-content .image-wrapper {
+    margin-top: 25px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text, .about-image {
+    width: 100%;
+  }
+
+  .service-cards, .projects-container, .contact-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .buttons a {
+    display: block;
+    margin: 10px auto;
+  }
+
 }
