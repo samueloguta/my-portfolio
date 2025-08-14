@@ -48,24 +48,32 @@ a:hover {
   transform: scale(1.05);
 }
 
+.content-container {
+  position: relative;
+  overflow: hidden;
+}
+
 .section {
   padding: 3rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: 100vh;
-  opacity: 0;
+  display: none;
+  height: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  overflow: hidden;
 }
 
 .section.active {
-  opacity: 1;
+  display: block;
+  height: auto;
+  min-height: 100vh;
   visibility: visible;
 }
 
 /* Fallback for no JavaScript */
 .no-js .section {
-  opacity: 1;
+  display: block;
+  height: auto;
   visibility: visible;
 }
 
@@ -165,6 +173,7 @@ img {
   font-size: 1.8rem;
   color: var(--primary-color);
   cursor: pointer;
+  z-index: 1001;
 }
 
 .nav-links {
@@ -188,6 +197,23 @@ img {
   border-bottom: 3px solid var(--primary-color);
   color: var(--primary-color);
   transform: translateY(-3px);
+}
+
+.nav-close {
+  display: none;
+}
+
+.nav-close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.nav-close-btn:hover {
+  transform: scale(1.1);
 }
 
 /* Hero Section */
@@ -837,7 +863,7 @@ img {
 
   .navbar { padding: 0.5rem 5%; }
   .navbar.scrolled { padding: 0.3rem 5%; }
-  .nav-toggle { display: block; position: absolute; top: 0.8rem; right: 3rem; }
+  .nav-toggle { display: block; position: absolute; top: 0.8rem; right: 3rem; z-index: 1001; }
   #dark-mode-toggle { position: absolute; right: 1rem; top: 0.8rem; }
 
   .nav-links {
@@ -852,31 +878,44 @@ img {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    z-index: 999;
-    transition: transform 0.3s ease;
-    transform: translateY(-100%);
+    z-index: 1000;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .nav-toggle input:checked ~ .nav-links {
     display: flex;
+    opacity: 1;
     transform: translateY(0);
   }
 
   .nav-links li a {
-    font-size: 1.5rem;
-    padding: 1rem;
-    width: 100%;
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+    width: 80%;
+    max-width: 300px;
     text-align: center;
     border-radius: 0.5rem;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: white;
     transition: transform 0.3s ease, background 0.3s ease;
+    z-index: 1000;
   }
 
   .nav-links li a:hover, .nav-links li a.active {
     background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-    transform: scale(1.1);
+    transform: scale(1.05);
     border-bottom: none;
+  }
+
+  .nav-close {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
   }
 
   .hero-content { padding: 1.5rem; margin: 1rem; }
