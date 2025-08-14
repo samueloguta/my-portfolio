@@ -53,15 +53,19 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
-  display: none;
 }
 
-.section.active {
+/* Ensure sections are visible by default for no-js fallback */
+.no-js .section {
   display: block;
 }
 
-/* Fallback for JavaScript-disabled browsers */
-.no-js .section {
+/* Hide non-active sections when JavaScript is enabled */
+.js-enabled .section {
+  display: none;
+}
+
+.js-enabled .section.active {
   display: block;
 }
 
@@ -177,6 +181,7 @@ img {
   padding: 0.5rem 0.75rem;
   border-bottom: 3px solid transparent;
   transition: all 0.3s ease;
+  display: block;
 }
 
 .nav-links li a.active, .nav-links li a:hover {

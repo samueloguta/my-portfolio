@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.section');
   const contactLinks = document.querySelectorAll('.contact-link');
+  const projectLinks = document.querySelectorAll('.project-link');
   const navToggle = document.querySelector('#nav-toggle');
   const darkModeToggle = document.getElementById('dark-mode-toggle');
 
@@ -29,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
       targetSection.scrollIntoView({ behavior: 'smooth' });
     };
     link.addEventListener('click', handleNavClick);
-    link.addEventListener('touchstart', handleNavClick); // Use touchstart for better mobile responsiveness
+    link.addEventListener('touchstart', handleNavClick, { passive: false });
   });
 
-  // Contact link click handler for smooth scrolling
+  // Contact link click handler
   contactLinks.forEach(link => {
     const handleContactClick = (e) => {
       e.preventDefault();
@@ -41,7 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
       contactSection.scrollIntoView({ behavior: 'smooth' });
     };
     link.addEventListener('click', handleContactClick);
-    link.addEventListener('touchstart', handleContactClick); // Use touchstart for better mobile responsiveness
+    link.addEventListener('touchstart', handleContactClick, { passive: false });
+  });
+
+  // Project link click handler
+  projectLinks.forEach(link => {
+    const handleProjectClick = (e) => {
+      e.preventDefault();
+      showSection('projects');
+      const projectSection = document.getElementById('projects');
+      projectSection.scrollIntoView({ behavior: 'smooth' });
+    };
+    link.addEventListener('click', handleProjectClick);
+    link.addEventListener('touchstart', handleProjectClick, { passive: false });
   });
 
   // Dark mode toggle
@@ -99,26 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCounter();
   });
 
-  // Cursor Effect
-  const cursor = document.createElement('div');
-  cursor.className = 'custom-cursor';
-  document.body.appendChild(cursor);
-  document.addEventListener('mousemove', e => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
-  });
-  document.addEventListener('touchmove', e => {
-    const touch = e.touches[0];
-    cursor.style.left = `${touch.clientX}px`;
-    cursor.style.top = `${touch.clientY}px`;
-  });
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-    el.addEventListener('touchstart', () => cursor.classList.add('hover'));
-    el.addEventListener('touchend', () => cursor.classList.remove('hover'));
-  });
-
-  // Fallback for JavaScript-disabled browsers
+  // Enable JavaScript-specific styles
+  document.documentElement.classList.remove('no-js');
   document.documentElement.classList.add('js-enabled');
 });
