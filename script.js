@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show section and update active link
     function showSection(sectionId) {
       try {
-        console.log(`Navigating to section: ${sectionId}`); // Debugging log
+        console.log(`Navigating to section: ${sectionId}`);
         sections.forEach(section => {
           section.classList.toggle('active', section.id === sectionId);
         });
@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
           link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
         });
         triggerAnimations(document.getElementById(sectionId));
-        if (navToggle.checked) {
-          console.log('Closing mobile menu'); // Debugging log
+        if (navToggle && navToggle.checked) {
+          console.log('Closing mobile menu');
           navToggle.checked = false;
+          document.body.classList.remove('nav-open');
         }
         // Scroll to section
         const targetSection = document.getElementById(sectionId);
@@ -31,49 +32,59 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Navigation link click handler
+    // Navigation link click/touch handler
     navLinks.forEach(link => {
       const handleNavClick = (e) => {
         e.preventDefault();
         const sectionId = link.getAttribute('href').substring(1);
-        console.log(`Clicked nav link: ${sectionId}`); // Debugging log
+        console.log(`Clicked/touched nav link: ${sectionId}`);
         showSection(sectionId);
       };
       link.addEventListener('click', handleNavClick);
       link.addEventListener('touchstart', handleNavClick, { passive: false });
     });
 
-    // Contact link click handler
+    // Contact link click/touch handler
     contactLinks.forEach(link => {
       const handleContactClick = (e) => {
         e.preventDefault();
-        console.log('Clicked contact link'); // Debugging log
+        console.log('Clicked/touched contact link');
         showSection('contact');
       };
       link.addEventListener('click', handleContactClick);
       link.addEventListener('touchstart', handleContactClick, { passive: false });
     });
 
-    // Project link click handler
+    // Project link click/touch handler
     projectLinks.forEach(link => {
       const handleProjectClick = (e) => {
         e.preventDefault();
-        console.log('Clicked project link'); // Debugging log
+        console.log('Clicked/touched project link');
         showSection('projects');
       };
       link.addEventListener('click', handleProjectClick);
       link.addEventListener('touchstart', handleProjectClick, { passive: false });
     });
 
+    // Toggle mobile menu visibility
+    if (navToggle) {
+      navToggle.addEventListener('change', () => {
+        console.log(`Menu toggle state: ${navToggle.checked}`);
+        document.body.classList.toggle('nav-open', navToggle.checked);
+      });
+    }
+
     // Close button for mobile menu
     if (navCloseBtn) {
       navCloseBtn.addEventListener('click', () => {
-        console.log('Clicked close button'); // Debugging log
+        console.log('Clicked close button');
         navToggle.checked = false;
+        document.body.classList.remove('nav-open');
       });
       navCloseBtn.addEventListener('touchstart', () => {
-        console.log('Touched close button'); // Debugging log
+        console.log('Touched close button');
         navToggle.checked = false;
+        document.body.classList.remove('nav-open');
       }, { passive: false });
     }
 

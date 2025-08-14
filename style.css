@@ -51,6 +51,7 @@ a:hover {
 .content-container {
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 
 .section {
@@ -159,6 +160,7 @@ img {
   color: var(--text-color);
   cursor: pointer;
   transition: transform 0.3s ease;
+  z-index: 1002;
 }
 
 #dark-mode-toggle:hover {
@@ -173,7 +175,8 @@ img {
   font-size: 1.8rem;
   color: var(--primary-color);
   cursor: pointer;
-  z-index: 1001;
+  z-index: 1002;
+  padding: 0.5rem;
 }
 
 .nav-links {
@@ -210,6 +213,7 @@ img {
   color: var(--primary-color);
   cursor: pointer;
   transition: transform 0.3s ease;
+  padding: 0.5rem;
 }
 
 .nav-close-btn:hover {
@@ -846,7 +850,7 @@ img {
   justify-content: center;
   font-size: 1.8rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 1000;
+  z-index: 1002;
 }
 
 .whatsapp-float:hover {
@@ -863,8 +867,8 @@ img {
 
   .navbar { padding: 0.5rem 5%; }
   .navbar.scrolled { padding: 0.3rem 5%; }
-  .nav-toggle { display: block; position: absolute; top: 0.8rem; right: 3rem; z-index: 1001; }
-  #dark-mode-toggle { position: absolute; right: 1rem; top: 0.8rem; }
+  .nav-toggle { display: block; position: fixed; top: 0.8rem; right: 3rem; z-index: 1003; }
+  #dark-mode-toggle { position: fixed; right: 1rem; top: 0.8rem; z-index: 1003; }
 
   .nav-links {
     display: none;
@@ -878,7 +882,7 @@ img {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    z-index: 1000;
+    z-index: 1002;
     padding: 2rem;
     opacity: 0;
     transform: translateY(-20px);
@@ -886,7 +890,7 @@ img {
   }
 
   .nav-toggle input:checked ~ .nav-links {
-    display: flex;
+    display: flex !important;
     opacity: 1;
     transform: translateY(0);
   }
@@ -901,7 +905,8 @@ img {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: white;
     transition: transform 0.3s ease, background 0.3s ease;
-    z-index: 1000;
+    z-index: 1002;
+    touch-action: manipulation;
   }
 
   .nav-links li a:hover, .nav-links li a.active {
@@ -912,10 +917,10 @@ img {
 
   .nav-close {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 1rem;
     right: 1rem;
-    z-index: 1001;
+    z-index: 1003;
   }
 
   .hero-content { padding: 1.5rem; margin: 1rem; }
@@ -943,7 +948,7 @@ img {
   .cv-container { padding: 1.5rem; margin: 1rem; }
   .cv-header h2 { font-size: 1.8rem; }
   .cv-content { flex-direction: column; }
-  .cv-preview { width: 100%; }
+  .cv-preview { display: none; }
   .cv-highlights { width: 100%; text-align: center; }
   .cv-highlights ul { text-align: left; max-width: 80%; margin: 0 auto; }
   .cv-download { margin-top: 1rem; }
