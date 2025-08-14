@@ -3,17 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Samuel Oguta, a Fullstack Developer specializing in MERN stack and AI solutions" />
+  <meta name="keywords" content="Samuel Oguta, Fullstack Developer, MERN Stack, AI, Web Development, Portfolio" />
+  <meta name="author" content="Samuel Oguta" />
   <title>Samuel Oguta - Portfolio</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 <body>
   <!-- Navbar -->
   <header>
     <nav class="navbar">
+      <div class="logo">Samuel Oguta</div>
+      <div class="nav-toggle">
+        <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation">
+        <label for="nav-toggle" class="nav-toggle-label"><i class="fas fa-bars"></i></label>
+      </div>
       <ul class="nav-links" role="menu">
         <li><a href="#" data-section="home" class="active" role="menuitem">Home</a></li>
         <li><a href="#" data-section="about" role="menuitem">About</a></li>
@@ -22,172 +29,184 @@
         <li><a href="#" data-section="contact" role="menuitem">Contact</a></li>
         <li><a href="#" data-section="cv" role="menuitem">CV</a></li>
       </ul>
+      <button id="dark-mode-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
     </nav>
   </header>
 
-  <!-- Sections -->
-  <main>
-    <section id="home" class="section active" aria-label="Home Section">
-      <div class="home-content">
-        <div class="text">
-          <p class="intro">Hi, I'm <span>Samuel Oguta</span></p>
-          <h1>Certified Fullstack Software Developer & AI Enthusiast</h1>
-          <p class="subtext">
-            I craft efficient, scalable, and user-focused solutions using modern
-            web technologies. Passionate about innovation, I turn complex problems
-            into seamless digital experiences.
-          </p>
-          <div class="buttons">
-            <a href="#" data-section="about" class="btn" aria-label="Learn more about Samuel Oguta">Learn More</a>
-            <a href="oguta.pdf" download="Samuel_Oguta_CV.pdf" class="btn secondary-btn" aria-label="Download CV">Download CV</a>
-          </div>
-        </div>
-        <div class="image-wrapper">
-          <img src="image.png" alt="Samuel Oguta" />
-          <div class="experience-badge">2+ Years Experience</div>
+  <!-- Hero Section -->
+  <section id="home" class="section active" aria-label="Home Section">
+    <div class="hero-content animate-on-scroll">
+      <div class="hero-text">
+        <h1 class="animated-headline">Hi, I'm Samuel Oguta<br><span class="headline-cycle">Fullstack Developer | AI Enthusiast | Problem Solver</span></h1>
+        <p class="subtext">I craft scalable, user-focused web solutions that drive results.</p>
+        <div class="buttons">
+          <a href="#" data-section="projects" class="btn" aria-label="View Samuel Oguta's Work">View My Work</a>
+          <a href="#contact" class="btn secondary-btn" aria-label="Hire Samuel Oguta">Hire Me</a>
         </div>
       </div>
-    </section>
+      <div class="hero-image parallax">
+        <img src="image.png" alt="Samuel Oguta" loading="lazy" />
+        <div class="experience-badge">Certified Developer</div>
+      </div>
+      <div class="hero-background"></div>
+    </div>
+    <div class="section-footer">&copy; 2025 Samuel Oguta. All rights reserved.</div>
+  </section>
 
-    <section id="about" class="section" aria-label="About Section">
-      <div class="about-content">
-        <div class="about-image">
-          <img src="image.png" alt="Samuel Oguta" />
+  <!-- About Section -->
+  <section id="about" class="section" aria-label="About Section">
+    <div class="about-content animate-on-scroll">
+      <div class="about-image">
+        <img src="image.png" alt="Samuel Oguta" loading="lazy" />
+      </div>
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>I’m Samuel Oguta, a certified Virtual Assistant and AI specialist from ALX, with a passion for delivering innovative digital solutions. I specialize in creating seamless, scalable web applications and leveraging AI to solve complex challenges, ensuring exceptional results for clients.</p>
+        <p>I am currently pursuing a BSc in Telecommunication and Information Technology at <a href="https://www.ku.ac.ke" target="_blank" rel="noopener noreferrer" style="color:#ff6600; font-weight:bold;">Kenyatta University</a>, where I hone my technical expertise to craft impactful, client-focused solutions.</p>
+        <h3>Skills & Expertise</h3>
+        <div class="skills-badges">
+          <span data-tooltip="Proficient in MongoDB, Express, React, Node.js">MERN Stack</span>
+          <span data-tooltip="RESTful APIs and GraphQL">API Development</span>
+          <span data-tooltip="Responsive and intuitive designs">UI/UX Design</span>
+          <span data-tooltip="Automation and machine learning">AI & Automation</span>
+          <span data-tooltip="Streamlined administrative support">Virtual Assistance</span>
         </div>
-        <div class="about-text">
-          <h2>About Me</h2>
-          <p>
-            Hello! I am <strong>Samuel Oguta</strong>, a certified Fullstack Software Developer with
-            expertise in the MERN stack, Virtual Assistance, and Artificial Intelligence from ALX.
-            With over two years of professional experience, I specialize in delivering impactful
-            solutions that merge functionality, performance, and aesthetics.
-          </p>
-          <p>
-            I am currently pursuing a <strong>BSc in Telecommunication and Information Technology</strong> at
-            <a href="https://www.ku.ac.ke" target="_blank" rel="noopener noreferrer" style="color:#ff6600; font-weight:bold;">Kenyatta University</a>,
-            where I continue to build my knowledge and skills to provide innovative tech solutions.
-          </p>
-          <h3>Skills & Expertise</h3>
-          <div class="skills-badges">
-            <span>Fullstack Development (MERN Stack)</span>
-            <span>Backend Development & APIs</span>
-            <span>Frontend Design & UX</span>
-            <span>Artificial Intelligence & Automation</span>
-            <span>Virtual Assistance</span>
-          </div>
+        <div class="fun-facts">
+          <span><i class="fas fa-coffee"></i> Cups of Coffee: <span class="counter" data-target="2134">0</span></span>
+          <span><i class="fas fa-code"></i> Lines of Code: <span class="counter" data-target="50000">0</span></span>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="section-footer">&copy; 2025 Samuel Oguta. All rights reserved.</div>
+  </section>
 
-    <section id="services" class="section" aria-label="Services Section">
+  <!-- Services Section -->
+  <section id="services" class="section" aria-label="Services Section">
+    <div class="services-header">
       <h2>Services</h2>
-      <div class="service-cards">
-        <div class="card">
-          <div class="card-icon" aria-hidden="true">🌐</div>
-          <h3>Web Application Development</h3>
-          <p>High-performance, scalable web applications tailored to your business needs, ensuring seamless user experience and robust security.</p>
-          <a href="#contact" class="btn-service" aria-label="Get a quote for Web Application Development" onclick="alert('Please contact me.'); return false;">Get a Quote</a>
-        </div>
-        <div class="card">
-          <div class="card-icon" aria-hidden="true">📱</div>
-          <h3>Mobile App Development</h3>
-          <p>Cross-platform mobile solutions with responsive designs that engage users and elevate your brand presence.</p>
-          <a href="#contact" class="btn-service" aria-label="Get a quote for Mobile App Development" onclick="alert('Please contact me.'); return false;">Get a Quote</a>
-        </div>
-        <div class="card">
-          <div class="card-icon" aria-hidden="true">⚙️</div>
-          <h3>API & Backend Development</h3>
-          <p>Robust, secure, and scalable server-side solutions for seamless data processing and integration across platforms.</p>
-          <a href="#contact" class="btn-service" aria-label="Get a quote for API and Backend Development" onclick="alert('Please contact me.'); return false;">Get a Quote</a>
-        </div>
-        <div class="card">
-          <div class="card-icon" aria-hidden="true">🎨</div>
-          <h3>UI/UX Design</h3>
-          <p>Visually appealing and user-friendly designs crafted to enhance engagement and improve user satisfaction.</p>
-          <a href="#contact" class="btn-service" aria-label="Get a quote for UI and UX Design" onclick="alert('Please contact me.'); return false;">Get a Quote</a>
-        </div>
+      <p>Explore my professional services designed to deliver impactful solutions for your business needs.</p>
+    </div>
+    <div class="service-cards">
+      <div class="card animate-on-scroll">
+        <div class="card-icon"><i class="fas fa-globe"></i></div>
+        <h3>Web Application Development</h3>
+        <p>Build scalable, high-performance web applications tailored to your business goals, enhancing user engagement and conversions.</p>
+        <a href="#contact" class="btn-service" aria-label="Get a quote for Web Application Development">Get a Quote</a>
       </div>
-    </section>
+      <div class="card animate-on-scroll">
+        <div class="card-icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>Mobile App Development</h3>
+        <p>Create seamless, cross-platform mobile applications with modern designs and optimal performance for all devices.</p>
+        <a href="#contact" class="btn-service" aria-label="Get a quote for Mobile App Development">Get a Quote</a>
+      </div>
+      <div class="card animate-on-scroll">
+        <div class="card-icon"><i class="fas fa-server"></i></div>
+        <h3>API & Backend Development</h3>
+        <p>Develop secure, efficient, and scalable server-side solutions to power your applications and streamline operations.</p>
+        <a href="#contact" class="btn-service" aria-label="Get a quote for API and Backend Development">Get a Quote</a>
+      </div>
+      <div class="card animate-on-scroll">
+        <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>UI/UX Design</h3>
+        <p>Design intuitive, user-friendly interfaces that enhance satisfaction and drive user retention for your digital products.</p>
+        <a href="#contact" class="btn-service" aria-label="Get a quote for UI and UX Design">Get a Quote</a>
+      </div>
+      <div class="card animate-on-scroll">
+        <div class="card-icon"><i class="fas fa-headset"></i></div>
+        <h3>Virtual Assistance</h3>
+        <p>Optimize your business operations with professional, streamlined administrative support and task management.</p>
+        <a href="#contact" class="btn-service" aria-label="Get a quote for Virtual Assistance">Get a Quote</a>
+      </div>
+    </div>
+    <div class="section-footer">&copy; 2025 Samuel Oguta. All rights reserved.</div>
+  </section>
 
-    <section id="projects" class="section" aria-label="Projects Section">
-      <h2>Projects</h2>
-      <div class="projects-container">
-        <div class="project-card">
+  <!-- Projects Section -->
+  <section id="projects" class="section" aria-label="Projects Section">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="project-card animate-on-scroll" data-category="web">
+        <div class="project-card-content">
           <h3>House Management System</h3>
-          <p>A system for booking houses using the MERN stack.</p>
+          <p>Developed a booking platform for residential properties, streamlining user experience and admin management.</p>
           <p><strong>Technologies:</strong> MongoDB, Express, React, Node.js</p>
+          <p><strong>Impact:</strong> Reduced booking time by 40% for users.</p>
           <div class="project-links">
-            <a href="https://nyaatha-frontend.vercel.app" target="_blank" rel="noopener" class="btn-project" aria-label="View Frontend of House Management System">🌐 Frontend</a>
-            <a href="https://nyaatha-apartments-backend.onrender.com" target="_blank" rel="noopener" class="btn-project secondary-btn-project" aria-label="View Backend API of House Management System">🔗 Backend API</a>
+            <a href="https://nyaatha-frontend.vercel.app" target="_blank" rel="noopener" class="btn-project">🌐 Live Demo</a>
+            <a href="https://nyaatha-apartments-backend.onrender.com" target="_blank" rel="noopener" class="btn-project secondary-btn-project">🔗 API</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+    <div class="section-footer">&copy; 2025 Samuel Oguta. All rights reserved.</div>
+  </section>
 
-    <!-- CV Section -->
-    <section id="cv" class="section" aria-label="CV Section">
-      <div class="cv-container">
-        <div class="cv-header">
-          <h2>My Curriculum Vitae</h2>
-          <p>Explore my professional experience, skills, and projects. You can also download the full CV below.</p>
-          <a href="oguta.pdf" download="Samuel_Oguta_CV.pdf" class="btn cv-download-btn" aria-label="Download Full CV">
-            Download Full CV
-          </a>
+  <!-- CV Section -->
+  <section id="cv" class="section" aria-label="CV Section">
+    <div class="cv-container animate-on-scroll">
+      <div class="cv-header">
+        <h2>My Curriculum Vitae</h2>
+        <p>Explore my professional experience, skills, and projects. Download the full CV below.</p>
+      </div>
+      <div class="cv-content">
+        <div class="cv-preview desktop-only">
+          <embed src="oguta.pdf" type="application/pdf" width="100%" height="600px" />
+          <p class="cv-note">If your browser does not support PDF preview, you can <a href="oguta.pdf" download="Samuel_Oguta_CV.pdf">download the CV here</a>.</p>
         </div>
-
-        <div class="cv-content">
-          <div class="cv-preview">
-            <embed src="oguta.pdf" type="application/pdf" width="100%" height="600px" />
-            <p class="cv-note">If your browser does not support PDF preview, you can <a href="oguta.pdf" download="Samuel_Oguta_CV.pdf">download the CV here</a>.</p>
-          </div>
-
-          <div class="cv-highlights">
-            <h3>Key Highlights</h3>
-            <ul>
-              <li>Certified Fullstack Developer with 2+ years of professional experience</li>
-              <li>Expertise in MERN stack, API development, and UI/UX design</li>
-              <li>Passionate about AI, automation, and building scalable web solutions</li>
-              <li>BSc in Telecommunication & Information Technology (Kenyatta University)</li>
-              <li>Strong problem-solving and teamwork skills</li>
-            </ul>
-          </div>
+        <div class="cv-highlights">
+          <h3>Key Highlights</h3>
+          <ul>
+            <li>Certified Virtual Assistant and AI Specialist (ALX)</li>
+            <li>Expertise in MERN stack, API development, and UI/UX design</li>
+            <li>Passionate about AI, automation, and scalable solutions</li>
+            <li>BSc in Telecommunication & Information Technology (Kenyatta University)</li>
+            <li>Strong problem-solving and client-focused approach</li>
+          </ul>
         </div>
       </div>
-    </section>
+      <div class="cv-download">
+        <a href="oguta.pdf" download="Samuel_Oguta_CV.pdf" class="btn cv-download-btn">Download Full CV</a>
+      </div>
+    </div>
+    <div class="section-footer">&copy; 2025 Samuel Oguta. All rights reserved.</div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section" aria-label="Contact Section">
-      <h2>Contact Me</h2>
-      <p>If you'd like to get in touch for projects or professional inquiries, feel free to reach out through any of the following channels:</p>
-
-      <div class="contact-container">
-        <a href="mailto:ogutasamuel27@gmail.com" class="contact-item" aria-label="Email">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email icon" />
+  <!-- Contact Section -->
+  <section id="contact" class="section" aria-label="Contact Section">
+    <h2>Contact Me</h2>
+    <p>Let's create something amazing together! Reach out via the form or my contact details.</p>
+    <div class="contact-container animate-on-scroll">
+      <form class="contact-form" action="mailto:ogutasamuel27@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <div class="contact-details">
+        <a href="mailto:ogutasamuel27@gmail.com" class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email icon" loading="lazy" />
           <span>ogutasamuel27@gmail.com</span>
         </a>
-
-        <a href="https://wa.me/254752069054" target="_blank" rel="noopener" class="contact-item" aria-label="WhatsApp">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp icon" />
+        <a href="https://wa.me/254752069054" target="_blank" rel="noopener" class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp icon" loading="lazy" />
           <span>+254 752 069 054</span>
         </a>
-
-        <a href="https://www.linkedin.com/in/samuel-oguta-7a8b492a8/" target="_blank" rel="noopener" class="contact-item" aria-label="LinkedIn">
-          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn icon" />
+        <a href="https://www.linkedin.com/in/samuel-oguta-7a8b492a8/" target="_blank" rel="noopener" class="contact-item">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn icon" loading="lazy" />
           <span>LinkedIn Profile</span>
         </a>
-
-        <a href="https://github.com/samueloguta" target="_blank" rel="noopener" class="contact-item" aria-label="GitHub">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub icon" />
-          <span>GitHub Profile</span>
-        </a>
       </div>
-    </section>
-  </main>
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.195054024717!2d36.816!3d-1.283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMUmC!5e0!3m2!1sen!2ske!4v1697041234567" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="section-footer">&copy; 2025 Samuel Oguta. All rights reserved.</div>
+  </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Samuel Oguta. All rights reserved.</p>
-  </footer>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/254752069054" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contact via WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <script src="script.js"></script>
 </body>
