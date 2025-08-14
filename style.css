@@ -53,20 +53,20 @@ a:hover {
   max-width: 1200px;
   margin: 0 auto;
   min-height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Ensure sections are visible by default for no-js fallback */
+.section.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Fallback for no JavaScript */
 .no-js .section {
-  display: block;
-}
-
-/* Hide non-active sections when JavaScript is enabled */
-.js-enabled .section {
-  display: none;
-}
-
-.js-enabled .section.active {
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 img {
@@ -839,27 +839,44 @@ img {
   .navbar.scrolled { padding: 0.3rem 5%; }
   .nav-toggle { display: block; position: absolute; top: 0.8rem; right: 3rem; }
   #dark-mode-toggle { position: absolute; right: 1rem; top: 0.8rem; }
+
   .nav-links {
     display: none;
-    flex-direction: column;
-    background: var(--card-bg);
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 0;
-    box-shadow: 0 4px 10px var(--shadow-color);
+    height: 100vh;
+    background: var(--card-bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     z-index: 999;
+    transition: transform 0.3s ease;
+    transform: translateY(-100%);
   }
+
   .nav-toggle input:checked ~ .nav-links {
     display: flex;
+    transform: translateY(0);
   }
+
   .nav-links li a {
-    font-size: 1.1rem;
-    padding: 0.75rem;
+    font-size: 1.5rem;
+    padding: 1rem;
     width: 100%;
     text-align: center;
-    display: block;
+    border-radius: 0.5rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .nav-links li a:hover, .nav-links li a.active {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    transform: scale(1.1);
+    border-bottom: none;
   }
 
   .hero-content { padding: 1.5rem; margin: 1rem; }

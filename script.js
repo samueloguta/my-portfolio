@@ -18,6 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navToggle.checked) {
       navToggle.checked = false; // Close mobile menu
     }
+    // Scroll to section
+    const targetSection = document.getElementById(sectionId);
+    setTimeout(() => {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }, 100); // Small delay to ensure section is visible
   }
 
   // Navigation link click handler
@@ -26,8 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const sectionId = link.getAttribute('href').substring(1);
       showSection(sectionId);
-      const targetSection = document.getElementById(sectionId);
-      targetSection.scrollIntoView({ behavior: 'smooth' });
     };
     link.addEventListener('click', handleNavClick);
     link.addEventListener('touchstart', handleNavClick, { passive: false });
@@ -38,8 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleContactClick = (e) => {
       e.preventDefault();
       showSection('contact');
-      const contactSection = document.getElementById('contact');
-      contactSection.scrollIntoView({ behavior: 'smooth' });
     };
     link.addEventListener('click', handleContactClick);
     link.addEventListener('touchstart', handleContactClick, { passive: false });
@@ -50,8 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleProjectClick = (e) => {
       e.preventDefault();
       showSection('projects');
-      const projectSection = document.getElementById('projects');
-      projectSection.scrollIntoView({ behavior: 'smooth' });
     };
     link.addEventListener('click', handleProjectClick);
     link.addEventListener('touchstart', handleProjectClick, { passive: false });
