@@ -850,7 +850,7 @@ img {
   justify-content: center;
   font-size: 1.8rem;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 1002;
+  z-index: 1000;
 }
 
 .whatsapp-float:hover {
@@ -867,8 +867,8 @@ img {
 
   .navbar { padding: 0.5rem 5%; }
   .navbar.scrolled { padding: 0.3rem 5%; }
-  .nav-toggle { display: block; position: fixed; top: 0.8rem; right: 3rem; z-index: 1003; }
-  #dark-mode-toggle { position: fixed; right: 1rem; top: 0.8rem; z-index: 1003; }
+  .nav-toggle { display: block; position: absolute; top: 0.8rem; right: 3rem; z-index: 1003; }
+  #dark-mode-toggle { position: absolute; right: 1rem; top: 0.8rem; z-index: 1003; }
 
   .nav-links {
     display: none;
@@ -891,7 +891,7 @@ img {
 
   .nav-toggle input:checked ~ .nav-links {
     display: flex !important;
-    opacity: 1;
+    opacity: 1 !important;
     transform: translateY(0);
   }
 
@@ -905,8 +905,8 @@ img {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     color: white;
     transition: transform 0.3s ease, background 0.3s ease;
-    z-index: 1002;
     touch-action: manipulation;
+    z-index: 1002;
   }
 
   .nav-links li a:hover, .nav-links li a.active {
@@ -917,7 +917,7 @@ img {
 
   .nav-close {
     display: block;
-    position: fixed;
+    position: absolute;
     top: 1rem;
     right: 1rem;
     z-index: 1003;

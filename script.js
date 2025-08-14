@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Navigation link click/touch handler
+    // Navigation link click handler
     navLinks.forEach(link => {
       const handleNavClick = (e) => {
         e.preventDefault();
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('touchstart', handleNavClick, { passive: false });
     });
 
-    // Contact link click/touch handler
+    // Contact link click handler
     contactLinks.forEach(link => {
       const handleContactClick = (e) => {
         e.preventDefault();
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('touchstart', handleContactClick, { passive: false });
     });
 
-    // Project link click/touch handler
+    // Project link click handler
     projectLinks.forEach(link => {
       const handleProjectClick = (e) => {
         e.preventDefault();
@@ -72,6 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Menu toggle state: ${navToggle.checked}`);
         document.body.classList.toggle('nav-open', navToggle.checked);
       });
+      navToggle.addEventListener('touchstart', () => {
+        console.log('Touched hamburger menu');
+      }, { passive: false });
     }
 
     // Close button for mobile menu
