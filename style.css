@@ -52,11 +52,16 @@ a:hover {
   padding: 3rem 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh;
   display: none;
-  position: relative;
 }
 
 .section.active {
+  display: block;
+}
+
+/* Fallback for JavaScript-disabled browsers */
+.no-js .section {
   display: block;
 }
 
@@ -827,8 +832,8 @@ img {
 
   .navbar { padding: 0.5rem 5%; }
   .navbar.scrolled { padding: 0.3rem 5%; }
-  .nav-toggle { display: block; top: 0.8rem; right: 3rem; }
-  #dark-mode-toggle { right: 1rem; top: 0.8rem; }
+  .nav-toggle { display: block; position: absolute; top: 0.8rem; right: 3rem; }
+  #dark-mode-toggle { position: absolute; right: 1rem; top: 0.8rem; }
   .nav-links {
     display: none;
     flex-direction: column;
@@ -839,9 +844,18 @@ img {
     width: 100%;
     padding: 1rem 0;
     box-shadow: 0 4px 10px var(--shadow-color);
+    z-index: 999;
   }
-  .nav-toggle input:checked ~ .nav-links { display: flex; }
-  .nav-links li a { font-size: 1.1rem; padding: 0.75rem; width: 100%; text-align: center; }
+  .nav-toggle input:checked ~ .nav-links {
+    display: flex;
+  }
+  .nav-links li a {
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
 
   .hero-content { padding: 1.5rem; margin: 1rem; }
   .hero-text h1 { font-size: 2rem; }
