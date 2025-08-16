@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.section');
     const contactLinks = document.querySelectorAll('.contact-link');
     const projectLinks = document.querySelectorAll('.project-link');
-    const navToggle = document.querySelector('#nav-toggle');
+    const navToggle = document.querySelector('.nav-toggle');
     const navCloseBtn = document.querySelector('.nav-close-btn');
+    const navLinksContainer = document.querySelector('.nav-links');
     const darkModeToggle = document.getElementById('dark-mode-toggle');
 
     // Show section and update active link
@@ -19,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
           link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
         });
         triggerAnimations(document.getElementById(sectionId));
-        if (navToggle && navToggle.checked) {
+        // Close mobile menu
+        if (navLinksContainer.classList.contains('show')) {
           console.log('Closing mobile menu');
-          navToggle.checked = false;
-          document.body.classList.remove('nav-open');
+          navLinksContainer.classList.remove('show');
         }
         // Scroll to section
         const targetSection = document.getElementById(sectionId);
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Navigation link click handler
+    // Navigation link click/touch handler
     navLinks.forEach(link => {
       const handleNavClick = (e) => {
         e.preventDefault();
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { passive: false });
     });
 
-    // Contact link click handler
+    // Contact link click/touch handler
     contactLinks.forEach(link => {
       const handleContactClick = (e) => {
         e.preventDefault();
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       link.addEventListener('touchstart', handleContactClick, { passive: false });
     });
 
-    // Project link click handler
+    // Project link click/touch handler
     projectLinks.forEach(link => {
       const handleProjectClick = (e) => {
         e.preventDefault();
@@ -71,15 +72,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle mobile menu visibility
     if (navToggle) {
-      navToggle.addEventListener('change', () => {
-        console.log(`Menu toggle state: ${navToggle.checked}`);
-        document.body.classList.toggle('nav-open', navToggle.checked);
+      navToggle.addEventListener('click', () => {
+        console.log('Clicked hamburger menu');
+        navLinksContainer.classList.toggle('show');
       });
       navToggle.addEventListener('touchstart', (e) => {
         e.preventDefault();
         console.log('Touched hamburger menu');
-        navToggle.checked = !navToggle.checked;
-        document.body.classList.toggle('nav-open', navToggle.checked);
+        navLinksContainer.classList.toggle('show');
       }, { passive: false });
     }
 
@@ -87,13 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navCloseBtn) {
       navCloseBtn.addEventListener('click', () => {
         console.log('Clicked close button');
-        navToggle.checked = false;
-        document.body.classList.remove('nav-open');
+        navLinksContainer.classList.remove('show');
       });
-      navCloseBtn.addEventListener('touchstart', () => {
+      navCloseBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
         console.log('Touched close button');
-        navToggle.checked = false;
-        document.body.classList.remove('nav-open');
+        navLinksContainer.classList.remove('show');
       }, { passive: false });
     }
 

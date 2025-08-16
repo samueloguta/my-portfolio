@@ -169,9 +169,8 @@ img {
 
 .nav-toggle {
   display: none;
-}
-
-.nav-toggle-label {
+  background: none;
+  border: none;
   font-size: 1.8rem;
   color: var(--primary-color);
   cursor: pointer;
@@ -867,8 +866,19 @@ img {
 
   .navbar { padding: 0.5rem 5%; }
   .navbar.scrolled { padding: 0.3rem 5%; }
-  .nav-toggle { display: block; position: absolute; top: 0.8rem; right: 3rem; z-index: 1003; }
-  #dark-mode-toggle { position: absolute; right: 1rem; top: 0.8rem; z-index: 1003; }
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    top: 0.8rem;
+    right: 3rem;
+    z-index: 1003;
+  }
+  #dark-mode-toggle {
+    position: absolute;
+    right: 1rem;
+    top: 0.8rem;
+    z-index: 1003;
+  }
 
   .nav-links {
     display: none;
@@ -884,10 +894,12 @@ img {
     gap: 2rem;
     z-index: 1005;
     padding: 2rem;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-20px);
   }
 
-  .nav-toggle input:checked ~ .nav-links {
+  .nav-links.show {
     display: flex;
     opacity: 1;
     transform: translateY(0);
