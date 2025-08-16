@@ -882,16 +882,14 @@ img {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    z-index: 1002;
+    z-index: 1005;
     padding: 2rem;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
   }
 
   .nav-toggle input:checked ~ .nav-links {
-    display: flex !important;
-    opacity: 1 !important;
+    display: flex;
+    opacity: 1;
     transform: translateY(0);
   }
 
@@ -957,5 +955,5 @@ img {
   .contact-form { padding: 1.5rem; gap: 1rem; }
   .contact-form input, .contact-form textarea { padding: 0.8rem; font-size: 0.9rem; }
   .contact-details { padding: 1.5rem; gap: 1rem; }
-  .map { height: 200px; }
+  .map { height: 250px; }
 }

@@ -41,7 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
         showSection(sectionId);
       };
       link.addEventListener('click', handleNavClick);
-      link.addEventListener('touchstart', handleNavClick, { passive: false });
+      link.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        handleNavClick(e);
+      }, { passive: false });
     });
 
     // Contact link click handler
@@ -72,8 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Menu toggle state: ${navToggle.checked}`);
         document.body.classList.toggle('nav-open', navToggle.checked);
       });
-      navToggle.addEventListener('touchstart', () => {
+      navToggle.addEventListener('touchstart', (e) => {
+        e.preventDefault();
         console.log('Touched hamburger menu');
+        navToggle.checked = !navToggle.checked;
+        document.body.classList.toggle('nav-open', navToggle.checked);
       }, { passive: false });
     }
 
